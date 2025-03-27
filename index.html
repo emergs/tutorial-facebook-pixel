@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teste Facebook Pixel</title>
+
+    <!-- Facebook Pixel -->
+    <script>
+      !function(f,b,e,v,n,t,s)
+      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+      if(!f._fbq)f._fbq=n;
+      n.push=n;
+      n.loaded=!0;
+      n.version='2.0';
+      n.queue=[];
+      t=b.createElement(e);
+      t.async=!0;
+      t.src=v;
+      s=b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t,s)}
+      (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+      fbq('init', '1187133419670737'); // Substitua pelo ID do seu pixel
+      fbq('track', 'PageView'); // Rastreia a visualização da página
+    </script>
+    <noscript>
+      <img height="1" width="1" 
+      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
+    </noscript>
+</head>
+<body>
+    <h1>Teste do Facebook Pixel</h1>
+
+    <button onclick="fbq('track', 'Lead')">Cadastrar</button>
+    <button onclick="fbq('track', 'Purchase', {value: 49.99, currency: 'BRL'})">Comprar</button>
+
+    <p>Abra o console do navegador (F12) e vá na aba "Network" para ver os eventos do Pixel sendo disparados.</p>
+</body>
+</html>
