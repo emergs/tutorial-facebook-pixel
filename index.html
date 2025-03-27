@@ -1,43 +1,67 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Teste Facebook Pixel</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Teste Facebook Pixel</title>
+  <link rel="stylesheet" type="text/css" href="style.css" />
 
-    <!-- Facebook Pixel -->
-    <script>
-      !function(f,b,e,v,n,t,s)
-      {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-      if(!f._fbq)f._fbq=n;
-      n.push=n;
-      n.loaded=!0;
-      n.version='2.0';
-      n.queue=[];
-      t=b.createElement(e);
-      t.async=!0;
-      t.src=v;
-      s=b.getElementsByTagName(e)[0];
-      s.parentNode.insertBefore(t,s)}
-      (window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+  <!-- Facebook Pixel -->
+  <script>
+    !function (f, b, e, v, n, t, s) {
+      if (f.fbq) return; n = f.fbq = function () {
+        n.callMethod ?
+        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+      };
+      if (!f._fbq) f._fbq = n;
+      n.push = n;
+      n.loaded = !0;
+      n.version = '2.0';
+      n.queue = [];
+      t = b.createElement(e);
+      t.async = !0;
+      t.src = v;
+      s = b.getElementsByTagName(e)[0];
+      s.parentNode.insertBefore(t, s)
+    }
+      (window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
-      fbq('init', '1187133419670737'); // Substitua pelo ID do seu pixel
-      fbq('track', 'PageView'); // Rastreia a visualização da página
-    </script>
-    <noscript>
-      <img height="1" width="1" 
-      src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1"/>
-    </noscript>
+    fbq('init', '1187133419670737'); // Substitua pelo ID do seu pixel
+    fbq('track', 'PageView'); // Rastreia a visualização da página
+
+    document.addEventListener("scroll", function () {
+      let scrollTop = window.scrollY; // Posição do scroll
+      let windowHeight = window.innerHeight; // Altura visível da tela
+      let fullHeight = document.body.scrollHeight; // Altura total da página
+      let scrollPercentage = (scrollTop + windowHeight) / fullHeight * 100; // Cálculo do % rolado
+
+      if (scrollPercentage > 50) { // Disparar evento ao atingir 50%
+        fbq('track', 'ScrollDepth', { depth: '50%' });
+      }
+      if (scrollPercentage >= 100) { // Disparar evento ao atingir 100%
+        fbq('track', 'ScrollDepth', { depth: '100%' });
+      }
+    });
+  </script>
+  <noscript>
+    <img height="1" width="1" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1" />
+  </noscript>
 </head>
+
 <body>
-    <h1>Teste do Facebook Pixel</h1>
+  <h1>Teste do Facebook Pixel</h1>
 
-    <button onclick="fbq('track', 'Lead')">Cadastrar</button>
-    <button onclick="fbq('track', 'Purchase', {value: 49.99, currency: 'BRL'})">Comprar</button>
-    <button onclick="fbq('track', 'Purchase', {content_name:'Garrafa plástica 2L', value: 49.99, currency: 'BRL'})">Comprar Garrafa</button>
-    <button onclick="fbq('track', 'AddToCart', {content_ids:'ABC123456', content_type:'product', contents:[{'id': 'ABC123', 'quantity': 2}], currency: 'BRL'})">Adicionar ao carrinho</button>
+  <button onclick="fbq('track', 'Lead')">Cadastrar</button>
+  <button onclick="fbq('track', 'Purchase', {value: 49.99, currency: 'BRL'})">Comprar</button>
+  <button
+    onclick="fbq('track', 'Purchase', {content_name:'Garrafa plástica 2L', value: 49.99, currency: 'BRL'})">Comprar
+    Garrafa</button>
+  <button
+    onclick="fbq('track', 'AddToCart', {content_ids:'ABC123456', content_type:'product', contents:[{'id': 'ABC123', 'quantity': 2}], currency: 'BRL'})">Adicionar
+    ao carrinho</button>
 
-    <p>Abra o console do navegador (F12) e vá na aba "Network" para ver os eventos do Pixel sendo disparados.</p>
+  <p>Abra o console do navegador (F12) e vá na aba "Network" para ver os eventos do Pixel sendo disparados.</p>
 </body>
+
 </html>
