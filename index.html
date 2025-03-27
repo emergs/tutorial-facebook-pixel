@@ -35,6 +35,7 @@
 
     <button onclick="fbq('track', 'Lead')">Cadastrar</button>
     <button onclick="fbq('track', 'Purchase', {value: 49.99, currency: 'BRL'})">Comprar</button>
+    <button onclick="fbq('track', 'AddToCart', {content_ids:'ABC123456', content_type:'product', contents:[{'id': 'ABC123', 'quantity': 2}], currency: 'BRL'})">Adicionar ao carrinho</button>
 
     <p>Abra o console do navegador (F12) e vá na aba "Network" para ver os eventos do Pixel sendo disparados.</p>
 </body>
