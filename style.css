@@ -51,8 +51,10 @@ body{
     object-fit: contain;
 }
 
-#products li p:first-child{
-    min-height: 36px
+#products li p{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 #products button {
