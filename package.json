@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "run",
-    "run":"serve"
+    "start":"serve"
   },
   "author": "Emerson Gonçalves dos Santos",
   "license": "MIT",

@@ -12,7 +12,7 @@
     !function (f, b, e, v, n, t, s) {
       if (f.fbq) return; n = f.fbq = function () {
         n.callMethod ?
-        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+          n.callMethod.apply(n, arguments) : n.queue.push(arguments)
       };
       if (!f._fbq) f._fbq = n;
       n.push = n;
@@ -44,6 +44,7 @@
     //   }
     // });
   </script>
+  <script src="script.js"></script>
   <noscript>
     <img height="1" width="1" src="https://www.facebook.com/tr?id=SEU_PIXEL_ID&ev=PageView&noscript=1" />
   </noscript>
@@ -52,14 +53,14 @@
 <body>
   <h1>Teste do Facebook Pixel</h1>
 
+  <section id="products">
+    <ul>
+
+    </ul>
+  </section>
+
   <button onclick="fbq('track', 'Lead')">Cadastrar</button>
   <button onclick="fbq('track', 'Purchase', {value: 49.99, currency: 'BRL'})">Comprar</button>
-  <button
-    onclick="fbq('track', 'Purchase', {content_name:'Garrafa plástica 2L', value: 49.99, currency: 'BRL'})">Comprar
-    Garrafa</button>
-  <button
-    onclick="fbq('track', 'AddToCart', {content_ids:'ABC123456', content_type:'product', contents:[{'id': 'ABC123', 'quantity': 2}], currency: 'BRL'})">Adicionar
-    ao carrinho</button>
 
   <p>Abra o console do navegador (F12) e vá na aba "Network" para ver os eventos do Pixel sendo disparados.</p>
 </body>
