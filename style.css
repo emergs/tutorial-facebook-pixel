@@ -51,7 +51,7 @@ body{
     object-fit: contain;
 }
 
-#products p:first-child{
+#products li p:first-child{
     min-height: 36px
 }
 
